@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zeblo AI - Create Ad Campaigns in Seconds | AGWS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/public/images/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="/public/images/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="/public/images/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/site.webmanifest" />
+    <style>
+      body {
+        font-family: 'Inter', sans-serif;
+      }
+      /* Style for the 3D canvas */
+      #bg-canvas {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        opacity: 0;
+      }
+      /* Custom gradient text */
+      .gradient-text {
+        background: linear-gradient(to right, #6d28d9, #d946ef);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      /* Custom glow for button */
+      .glow-button:hover {
+        box-shadow: 0 0 15px 5px rgba(168, 85, 247, 0.4);
+      }
+      /* Hide scrollbar for the marquee */
+      .marquee-container::-webkit-scrollbar {
+        display: none;
+      }
+      .marquee-container {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-900 text-white overflow-x-hidden">
+    <header
+      class="fixed top-0 left-0 w-full z-50 p-6 flex justify-between items-center"
+    >
+      <div class="text-xl font-bold flex justify-center items-center gap-2">
+        <img
+          src="/public/images/zeblo-logo-crpd-w-on-b-rm-bg.png"
+          alt="Zeblo logo"
+          class="w-auto h-[45px]"
+        />
+        <span class="text-sm font-light text-gray-400">by AGWS</span>
+      </div>
+      <a
+        href="#waitlist"
+        class="bg-violet-600 hover:bg-violet-700 text-white font-bold py-2 px-5 rounded-full transition-colors glow-button"
+      >
+        Join Waitlist
+      </a>
+    </header>
+
+    <section
+      class="relative h-screen flex items-center justify-center text-center overflow-hidden px-4"
+    >
+      <canvas id="bg-canvas"></canvas>
+      <div class="relative z-10 p-4">
+        <h2
+          id="hero-title"
+          class="text-4xl sm:text-5xl md:text-7xl font-black opacity-0"
+        >
+          Stop <span class="gradient-text">Designing.</span><br />Start Selling.
+        </h2>
+        <p
+          id="hero-subtitle"
+          class="max-w-2xl mx-auto mt-6 text-base sm:text-lg text-gray-300 opacity-0 px-4"
+        >
+          Upload your product photo, describe your brand, and let our AI
+          generate dozens of stunning, on-brand ad visuals for any platform. No
+          design skills required.
+        </p>
+        <a
+          id="hero-cta"
+          href="#waitlist"
+          class="mt-8 inline-block bg-violet-600 hover:bg-violet-700 text-white font-bold py-4 px-8 rounded-full text-lg transition-transform hover:scale-105 glow-button opacity-0"
+        >
+          Join the Private Beta
+        </a>
+      </div>
+    </section>
+
+    <section class="py-20 px-6 bg-black">
+      <div
+        class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-center"
+      >
+        <div
+          id="old-way"
+          class="p-8 bg-gray-800 rounded-lg border border-gray-700 opacity-0"
+        >
+          <h3 class="text-2xl font-bold text-center mb-6 text-red-400">
+            The Old Way 😩
+          </h3>
+          <ul class="space-y-4 text-gray-400 text-sm md:text-base">
+            <li class="line-through">Hire a photographer & studio</li>
+            <li class="line-through">Master Photoshop & Canva</li>
+            <li class="line-through">Spend hours on a single ad</li>
+            <li class="line-through">Struggle with generic templates</li>
+            <li class="line-through">Pay for expensive stock photos</li>
+          </ul>
+        </div>
+        <div
+          id="zeblo-way"
+          class="p-8 bg-gray-900 rounded-lg border border-violet-500 shadow-2xl shadow-violet-500/20 opacity-0"
+        >
+          <h3 class="text-2xl font-bold text-center mb-6 text-green-400">
+            The Zeblo Way ✨
+          </h3>
+          <ul class="space-y-4 text-sm md:text-lg">
+            <li>
+              <span class="font-bold text-violet-400">1. Upload Product:</span>
+              Start with any photo.
+            </li>
+            <li>
+              <span class="font-bold text-violet-400">2. Describe Brand:</span>
+              Tell the AI your vibe.
+            </li>
+            <li>
+              <span class="font-bold text-violet-400">3. Generate Ads:</span>
+              Get dozens of options in seconds.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-20">
+      <div class="marquee-container w-full overflow-hidden">
+        <div class="marquee flex space-x-6">
+          <img
+            src="/public/images/examples/kicks-cupcakes1.png"
+            alt="Generated Ad Example 1"
+            class="rounded-lg h-80 w-auto"
+          />
+          <img
+            src="/public/images/examples/kenny-dennis1.png"
+            alt="Generated Ad Example 2"
+            class="rounded-lg h-80 w-auto"
+          />
+          <img
+            src="/public/images/examples/4.png"
+            alt="Generated Ad Example 3"
+            class="rounded-lg h-80 w-auto"
+          />
+          <img
+            src="/public/images/examples/kenny-dennis2.png"
+            alt="Generated Ad Example 4"
+            class="rounded-lg h-80 w-auto"
+          />
+          <img
+            src="/public/images/examples/kicks-cupcakes2.png"
+            alt="Generated Ad Example 5"
+            class="rounded-lg h-80 w-auto"
+          />
+          <img
+            src="/public/images/examples/5.png"
+            alt="Generated Ad Example 6"
+            class="rounded-lg h-80 w-auto"
+          />
+          <img
+            src="/public/images/examples/kicks-cupcakes1.png"
+            alt="Generated Ad Example 1"
+            class="rounded-lg h-80 w-auto"
+          />
+          <img
+            src="/public/images/examples/kenny-dennis1.png"
+            alt="Generated Ad Example 2"
+            class="rounded-lg h-80 w-auto"
+          />
+          <img
+            src="/public/images/examples/4.png"
+            alt="Generated Ad Example 3"
+            class="rounded-lg h-80 w-auto"
+          />
+          <img
+            src="/public/images/examples/kenny-dennis2.png"
+            alt="Generated Ad Example 4"
+            class="rounded-lg h-80 w-auto"
+          />
+          <img
+            src="/public/images/examples/kicks-cupcakes2.png"
+            alt="Generated Ad Example 5"
+            class="rounded-lg h-80 w-auto"
+          />
+          <img
+            src="/public/images/examples/5.png"
+            alt="Generated Ad Example 6"
+            class="rounded-lg h-80 w-auto"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Waitlist Section -->
+    <section id="waitlist" class="py-20 px-6 bg-black">
+      <div class="max-w-xl mx-auto text-center">
+        <h2 class="text-4xl font-bold mb-4">
+          Be the First to Experience
+          <div class="flex justify-center items-center">
+            <img
+              src="/public/images/zeblo-logo-crpd-w-on-b-rm-bg.png"
+              alt="Zeblo logo"
+              class="w-auto h-[45px]"
+            />
+            AI
+          </div>
+        </h2>
+        <p class="text-gray-400 mb-8">
+          Join our private beta waitlist. We'll notify you as soon as a spot
+          opens up and send you an exclusive early-bird discount.
+        </p>
+
+        <!-- Mailchimp Form -->
+        <div id="mc_embed_signup">
+          <form
+            action="https://zeblo.us3.list-manage.com/subscribe/post?u=3f926af80743a98858ca9d87e&amp;id=823ce1b83f&amp;f_id=009f32e2f0"
+            method="post"
+            id="mc-embedded-subscribe-form"
+            name="mc-embedded-subscribe-form"
+            class="validate"
+            target="_blank"
+            novalidate
+          >
+            <div
+              id="mc_embed_signup_scroll"
+              class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto"
+            >
+              <div class="mc-field-group flex-grow">
+                <input
+                  type="email"
+                  value=""
+                  name="EMAIL"
+                  class="required email w-full p-4 rounded-lg bg-gray-800 border border-gray-700 focus:ring-2 focus:ring-violet-500 focus:border-transparent outline-none"
+                  id="mce-EMAIL"
+                  placeholder="your.email@company.com"
+                  required
+                />
+              </div>
+              <div style="position: absolute; left: -5000px" aria-hidden="true">
+                <input
+                  type="text"
+                  name="b_3f926af80743a98858ca9d87e_823ce1b83f"
+                  tabindex="-1"
+                  value=""
+                />
+              </div>
+              <div class="clear">
+                <input
+                  type="submit"
+                  value="Join the Waitlist"
+                  name="subscribe"
+                  id="mc-embedded-subscribe"
+                  class="button w-full sm:w-auto bg-violet-600 hover:bg-violet-700 text-white font-bold py-4 px-8 rounded-lg cursor-pointer transition-colors glow-button"
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+        <!--End mc_embed_signup-->
+        <p id="response-message" class="mt-4 text-green-400 h-6"></p>
+      </div>
+    </section>
+
+    <footer class="text-center py-8 text-gray-500">
+      <p>&copy; 2025 Zeblo AI by AGWS. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        // --- Three.js 3D Background ---
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(
+          75,
+          window.innerWidth / window.innerHeight,
+          0.1,
+          1000
+        );
+        const renderer = new THREE.WebGLRenderer({
+          canvas: document.getElementById('bg-canvas'),
+          alpha: true,
+        });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+
+        const shapes = [];
+        const geometry = new THREE.IcosahedronGeometry(1, 0);
+
+        for (let i = 0; i < 100; i++) {
+          const material = new THREE.MeshStandardMaterial({
+            color: Math.random() < 0.5 ? 0x8b5cf6 : 0xec4899,
+            metalness: 0.6,
+            roughness: 0.4,
+          });
+          const shape = new THREE.Mesh(geometry, material);
+          shape.position.set(
+            (Math.random() - 0.5) * 20,
+            (Math.random() - 0.5) * 20,
+            (Math.random() - 0.5) * 20
+          );
+          shape.rotation.set(
+            Math.random() * Math.PI,
+            Math.random() * Math.PI,
+            Math.random() * Math.PI
+          );
+          const scale = Math.random() * 0.2 + 0.1;
+          shape.scale.set(scale, scale, scale);
+          shapes.push(shape);
+          scene.add(shape);
+        }
+
+        const light = new THREE.PointLight(0xffffff, 1, 100);
+        light.position.set(10, 10, 10);
+        scene.add(light);
+        const ambientLight = new THREE.AmbientLight(0x404040, 2);
+        scene.add(ambientLight);
+
+        camera.position.z = 5;
+
+        const mouse = { x: 0, y: 0 };
+        window.addEventListener('mousemove', (event) => {
+          mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
+          mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+        });
+
+        function animate() {
+          requestAnimationFrame(animate);
+          shapes.forEach((shape) => {
+            shape.rotation.x += 0.001;
+            shape.rotation.y += 0.001;
+          });
+          light.position.x = mouse.x * 10;
+          light.position.y = mouse.y * 10;
+          camera.position.x += (mouse.x * 0.5 - camera.position.x) * 0.05;
+          camera.position.y += (mouse.y * 0.5 - camera.position.y) * 0.05;
+          camera.lookAt(scene.position);
+          renderer.render(scene, camera);
+        }
+        animate();
+
+        window.addEventListener('resize', () => {
+          camera.aspect = window.innerWidth / window.innerHeight;
+          camera.updateProjectionMatrix();
+          renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+
+        // --- GSAP Animations ---
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Fade in the 3D canvas
+        gsap.to('#bg-canvas', { opacity: 0.15, duration: 2, delay: 0.5 });
+
+        // Hero animations
+        const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+        tl.to('#hero-title', { y: 0, opacity: 1, duration: 1, delay: 0.5 })
+          .to('#hero-subtitle', { y: 0, opacity: 1, duration: 1 }, '-=0.7')
+          .to('#hero-cta', { y: 0, opacity: 1, duration: 0.8 }, '-=0.7');
+
+        gsap.from('#hero-title', { y: 30 });
+        gsap.from('#hero-subtitle', { y: 30 });
+        gsap.from('#hero-cta', { y: 30 });
+
+        // Comparison section animation
+        gsap.to('#old-way', {
+          scrollTrigger: {
+            trigger: '#old-way',
+            start: 'top 80%',
+            toggleActions: 'play none none none',
+          },
+          x: 0, // Animate to its current x position (no translation)
+          opacity: 1, // Animate to full opacity
+          duration: 1,
+        });
+        gsap.to('#zeblo-way', {
+          scrollTrigger: {
+            trigger: '#zeblo-way',
+            start: 'top 80%',
+            toggleActions: 'play none none none',
+          },
+          x: 0, // Animate to its current x position (no translation)
+          opacity: 1, // Animate to full opacity
+          duration: 1,
+        });
+
+        // Marquee animation
+        const marquee = document.querySelector('.marquee');
+        gsap.to(marquee, {
+          xPercent: -50,
+          ease: 'none',
+          duration: 40,
+          repeat: -1,
+        });
+
+        // --- Mailchimp Form Handling ---
+        const form = document.getElementById('mc-embedded-subscribe-form');
+        const messageEl = document.getElementById('response-message');
+
+        // Define the callback function in the global scope so the JSONP response can access it.
+        window.jsonpCallback = function (data) {
+          // Remove the script tag after it has been executed.
+          const script = document.querySelector('script[src*="post-json"]');
+          if (script) {
+            document.body.removeChild(script);
+          }
+
+          if (data.result === 'success') {
+            if (
+              data.msg ===
+              "You're already subscribed, your profile has been updated. Thank you!"
+            ) {
+              messageEl.textContent =
+                "You're already subscribed, your profile has been updated. Thank you!";
+              messageEl.classList.remove('text-red-400');
+              messageEl.classList.add('text-green-400');
+              form.reset();
+            } else {
+              messageEl.textContent = "Success! You're on the waitlist.";
+              messageEl.classList.remove('text-red-400');
+              messageEl.classList.add('text-green-400');
+              form.reset();
+            }
+          } else {
+            let errorMessage = 'An error occurred. Please try again.';
+            if (data.msg && typeof data.msg === 'string') {
+              if (data.msg.includes('is already subscribed')) {
+                errorMessage = "You're already on the waitlist!";
+              } else {
+                // Clean up the HTML from Mailchimp's error message.
+                errorMessage = data.msg.replace(/<[^>]*>/g, '').trim();
+              }
+            }
+            messageEl.textContent = errorMessage;
+            messageEl.classList.remove('text-green-400');
+            messageEl.classList.add('text-red-400');
+          }
+          // Clean up the global callback function.
+          delete window.jsonpCallback;
+        };
+
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          const email = document.getElementById('mce-EMAIL').value;
+          if (!validateEmail(email)) {
+            messageEl.textContent = 'Please enter a valid email address.';
+            messageEl.classList.remove('text-green-400');
+            messageEl.classList.add('text-red-400');
+            return;
+          }
+
+          const url =
+            form.action.replace('&amp;', '&').replace('/post?', '/post-json?') +
+            '&c=jsonpCallback';
+          const script = document.createElement('script');
+          script.src = `${url}&EMAIL=${encodeURIComponent(email)}`;
+          document.body.appendChild(script);
+        });
+
+        function validateEmail(email) {
+          const re =
+            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+          return re.test(String(email).toLowerCase());
+        }
+      });
+    </script>
+  </body>
+</html>
