@@ -173,6 +173,34 @@
       </div>
     </section>
 
+    <!-- Video Demo Section -->
+    <section id="demo" class="py-20 px-6 bg-gray-900">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-4xl font-bold mb-4">
+          From Photo to Pro Ad in 60 Seconds
+        </h2>
+        <p class="text-gray-400 mb-12 max-w-2xl mx-auto">
+          Words can only say so much. Watch this 1-minute demo to see just how
+          fast you can go from a simple product photo to a complete,
+          multi-platform ad campaign—complete with custom scenes and
+          professional copy.
+        </p>
+        <div
+          class="responsive-iframe-container h-[450px] rounded-lg overflow-hidden shadow-2xl shadow-violet-500/30"
+        >
+          <iframe
+            class="w-full h-full"
+            src="https://www.youtube.com/embed/osfcSSAiHf0?rel=0&showinfo=0&autoplay=0"
+            title="Zeblo AI Demo Video"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+          >
+          </iframe>
+        </div>
+      </div>
+    </section>
+
     <section class="py-20">
       <div class="marquee-container w-full overflow-hidden">
         <div class="marquee flex space-x-6">
@@ -206,6 +234,11 @@
             alt="Generated Ad Example 6"
             class="rounded-lg h-80 w-auto"
           />
+          <img
+            src="/public/images/examples/dres-brims1.png"
+            alt="Generated Ad Example 7"
+            class="rounded-lg h-80 w-auto"
+          />
 
           <img
             src="/public/images/examples/kicks-cupcakes1.png"
@@ -235,6 +268,11 @@
           <img
             src="/public/images/examples/kicks-cupcakes2.png"
             alt="Generated Ad Example 6"
+            class="rounded-lg h-80 w-auto"
+          />
+          <img
+            src="/public/images/examples/dres-brims1.png"
+            alt="Generated Ad Example 7"
             class="rounded-lg h-80 w-auto"
           />
         </div>
@@ -438,7 +476,7 @@
         gsap.to(marquee, {
           xPercent: -50,
           ease: 'none',
-          duration: 40,
+          duration: 30,
           repeat: -1,
         });
 
